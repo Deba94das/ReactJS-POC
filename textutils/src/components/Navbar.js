@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 function Navbar({title='set title here',aboutText='set about text here'}) {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {title}
@@ -41,7 +41,7 @@ function Navbar({title='set title here',aboutText='set about text here'}) {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button className="btn bg-primary btn-outline-light" type="submit" data-bs-theme="light">
                 Search
               </button>
             </form>
