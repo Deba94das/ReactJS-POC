@@ -1,15 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router'
 
 
-function Navbar({title='set title here',aboutText='set about text here'}) {
+function Navbar(props) {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <nav className={`navbar bg-${props.mode} border-bottom border-body`} data-bs-theme={props.mode}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            {title}
-          </a>
+          <Link className="navbar-brand" to="/">
+            {props.title}
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -24,17 +25,17 @@ function Navbar({title='set title here',aboutText='set about text here'}) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
-                  {aboutText}
-                </a>
+                <Link className="nav-link" to="/about">
+                  {props.aboutText}
+                </Link>
               </li>
             </ul>
-            <form className="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 type="search"
@@ -44,7 +45,11 @@ function Navbar({title='set title here',aboutText='set about text here'}) {
               <button className="btn bg-primary btn-outline-light" type="submit" data-bs-theme="light">
                 Search
               </button>
-            </form>
+            </form> */}
+            <div className={`form-check form-switch text-${props.mode === 'light'?'dark':'light'}`}>
+              <input className="form-check-input" type="checkbox" onClick={props.toggleMode} role="switch" id="switchCheckDefault" />
+              <label className="form-check-label" htmlFor="switchCheckDefault">Enable DarkMode</label>
+            </div>
           </div>
         </div>
       </nav>
