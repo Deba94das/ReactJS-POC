@@ -6,8 +6,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        Hello to my first react class based component.
+        <h1>This is my first react class based component</h1>
       </div>
     )
   }
 }
+
